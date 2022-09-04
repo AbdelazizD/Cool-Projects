@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflection generator</title>
+</head>
+<style>
+
+.radiographyCheckboxes {
+    display: flex;
+}
+
+.spanClass {
+ display: inline;   
+}
+
+
+
+</style>
+<body>
+
+    <h1>Pebblepad+ Reflection generator 1.0 </h1>
+
+    <div>What is this session?
+        <select id = "sessionType">
+         <option value = "select"> select</option>
+         <option value = "C"> Cariology </option>
+         <option value = "P"> Periodontics </option>
+         <option value = "R"> Radiography </option>    
+        </select><br><br>
+    </div>
+
+    <div id = "overallRatings"> How would you rate today's session? 
+       
+            <select id = "overallRating"> 
+                <option value="select"> select </option>
+                <option value="good">  Good </option>
+                <option value="neutral">  Neutral </option>
+                <option value="bad">  Bad </option>
+            </select>
+            <br>
+            <br> 
+    </div>
+    
+        
+        <div id = "finishedTasks"> Were you able to finish all the tasks?
+            <select id="finishedTask">
+            <option value="select"> select  </option>
+            <option value="yes"> Yes </option>
+            <option value="mostly"> Mostly </option>
+            <option value="no"> No </option>
+            </select>
+        </div>
+        <br>
+    
+
+
+
+   
+       <div id = "sessionAB"> Which question category is being asked?
+        <select id="archetype">
+            <option value="select"> select </option>
+            <option value = "wellOpt"> What went well? </option>
+            <option value = "learnToday"> What did you learn today? </option>
+            <option value = "didStandards"> Did you meet your standards?  </option>
+            <option value = "sessionPrep"> How did you prepare for this session? </option>
+            <option value = "problemsOpt"> What problems did you encounter? </option>
+            <option value = "procedureUnderstand"> How is your understanding of the procedure?</option>
+            <option value = "other"> Other </option>
+            
+        </select>
+        </div> 
+
+    <div id = "sessionR">
+
+            The tooth/teeth you exposed were <input id = "radInput" type = "text"> <br><br>
+
+
+            Prescribed area covered with sufficient clearance: <select id = "imageCaptured" > 
+                <option value = "select" > select </option>
+                <option value = "yes" > Yes </option>
+                <option value = "no"> No </option>
+                </select>
+            <br><br>
+
+            Type of radiograph:
+            <select id = "radiographType">
+                <option value = "select"> select</option>
+                <option value = "bitewing"> bitewing </option>
+                <option value = "periapical"> periapical </option>
+                <option value = "occlusal"> occlusal </option>
+            </select> <br><br>
+            
+            
+            How many overlaps did you have?<select id = "overlapNumber">
+                <option value = "0"> 0 </option>
+                <option value = "1"> 1 </option>
+                <option value = "2"> 2 </option>
+                <option value = "3"> 3 </option>
+                <option value = "4"> 4 </option>
+            </select>
+            
+            <div id = "overlapToggle1">
+               A <select id ="firstOverlap">
+                    <option value = " a minimal "> minimal </option>}
+
+                    <option value = " a small "> small</option>
+                    <option value = " a medium "> medium </option>
+                    <option value = " a large "> large </option>
+                </select>
+
+                <select id = "overlapNature1">
+                    <option value = " horizontal overlap "> horizontal </option>
+                    <option value = " vertical overlap "> vertical </option>
+                </select> overlap between tooth <input id = "ol11" type = "text"> and <input id ="ol12" type = "text">
+            </div>
+            <div id = "overlapToggle2">
+                A <select id = "secondOverlap">
+                    <option value = "a minimal"> minimal </option>
+                    <option value = "a small"> small</option>
+                    <option value = "a medium"> medium </option>
+                    <option value = "a large"> large </option>
+                </select>
+                <select id = "overlapNature2">
+                    <option value = "horizontal overlap "> horizontal </option>
+                    <option value = "vertical overlap "> vertical </option>
+                </select> overlap between tooth <input id = "ol21" type = "text"> and <input id = "ol22" type = "text">
+            </div>
+            <div id = "overlapToggle3">
+                A <select id = "thirdOverlap">
+                    <option value = "a minimal"> minimal </option>
+                    <option value = "a small"> small</option>
+                    <option value = "a medium"> medium </option>
+                    <option value = "a large"> large </option>
+                </select>
+
+                <select id = "overlapNature3">
+                    <option value = " horizontal overlap "> horizontal </option>
+                    <option value = " vertical overlap "> vertical </option>
+                </select> overlap between tooth <input id = "ol31" type = "text"> and <input id ="ol32" type = "text">
+            </div>
+            <div id = "overlapToggle4">
+                A <select id = "fourthOverlap">
+                    <option value = "minimal"> minimal </option>
+                    <option value = "small"> small</option>
+                    <option value = "medium"> medium </option>
+                    <option value = "large"> large </option>
+                </select>
+                <select id = "overlapNature4">
+                    <option value = " horizontal overlap "> horizontal </option>
+                    <option value = " vertical overlap "> vertical </option>
+                </select> overlap between tooth <input id = "ol41" type = "text"> and <input id="ol42" type = "text">
+            </div>
+
+            <h3>Other errors: </h3> 
+
+            <div id = "otherErrorsDiv" class = "radiographyCheckboxes">
+                <input type="checkbox" id = "otherErrors1" >
+                <label for = "otherErrors1"> Cone cut </label> <br>
+                <input type="checkbox" id = "otherErrors2">
+                <label for = "otherErrors2"> Elongation </label> <br>
+                <input type="checkbox" id = "otherErrors3">
+                <label for = "otherErrors3"> Foreshortening </label> <br>
+                <input type="checkbox" id = "otherErrors4">
+                <label for = "otherErrors4"> Incorrect settings </label> <br>
+                <input type="checkbox" id = "otherErrors5">
+                <label for = "otherErrors5"> Skewed Upward </label> <br>
+                <input type="checkbox" id = "otherErrors6">
+                <label for = "otherErrors6"> Skewed Downward </label> <br>
+                <input type="checkbox" id = "otherErrors7">
+                <label for = "otherErrors7"> Skewed posteriorly </label> <br>
+                <input type="checkbox" id = "otherErrors8">
+                <label for = "otherErrors8"> Skewed anteriorly </label> <br>
+            </div>
+
+            <h3>Normal anatomical landmarks present:</h3> 
+
+            <div id = "NALDiv" class="radiographyCheckboxes">
+                <input type="checkbox" id = "NAL1">
+                <label for = "NAL1"> Alveolar crest</label> <br>
+                <input type="checkbox" id = "NAL2">
+                <label for = "NAL2"> Tooth enamel </label> <br>
+                <input type="checkbox" id = "NAL3">
+                <label for = "NAL3"> Tooth dentine </label> <br>
+                <input type="checkbox" id = "NAL4">
+                <label for = "NAL4"> Pulp chamber</label> <br>
+                <input type="checkbox" id = "NAL5">
+                <label for = "NAL5"> Mental foramen</label> <br>
+                <input type="checkbox" id = "NAL6">
+                <label for = "NAL6"> Lamina dura </label> <br>
+                <input type="checkbox" id = "NAL7">
+                <label for = "NAL7"> CEJ </label> <br>
+                <input type="checkbox" id = "NAL8">
+                <label for = "NAL8"> Apical foramen</label> <br>
+                <input type="checkbox" id = "NAL9">
+                <label for = "NAL9"> Root(s) present </label> <br>
+                <input type="checkbox" id = "NAL10">
+                <label for = "NAL10"> Root canals present </label> <br>
+            </div>
+            
+
+               <h3>Applicable artifacts: </h3> 
+            <div class = "radiographyCheckboxes">
+
+                <input type="checkbox" id = "AA1">
+                <label for = "AA1"> Scratches </label> <br>
+                <input type="checkbox" id = "AA2">
+                <label for = "AA2"> Bending </label> <br>
+                <input type="checkbox" id = "AA3">
+                <label for = "AA3"> Blur </label> <br>
+                <input type="checkbox" id = "AA4">
+                <label for = "AA4" value = "magnet"> Magnet radioopacity </label> <br>
+                <input type="checkbox" id = "AA5">
+                <label for = "AA5"> Mannequin cheeks</label> <br>
+                <input type="checkbox" id = "AA6">
+                <label for = "AA6"> Mannequin stand </label> <br>
+            </div> 
+    </div>
+
+
+
+    <br>
+
+    <div id = "optionWell"> 
+        What went well?
+    <br>
+        <input type="checkbox" id = "well1">
+        <label for = "well1"> Posture/Ergonomics</label> <br>
+        <input type="checkbox" id = "well2">
+        <label for = "well2"> Indirect vision</label> <br>
+        <input type="checkbox" id = "well3">
+        <label for = "well3"> Rubber dam application</label> <br>
+        <input type="checkbox" id = "well4">
+        <label for = "well4"> Drilling correct cavity dimensions</label> <br>
+        <input type="checkbox" id = "well5">
+        <label for = "well5"> Application of a V3 matrix system </label> <br>
+        <input type="checkbox" id = "well6">
+        <label for = "well6"> Application of a tofflemire </label> <br>
+        <input type="checkbox" id = "well7">
+        <label for = "well7"> Filling appropriately </label> <br>
+        <input type="checkbox" id = "well8">
+        <label for = "well8"> Finishing/Polishing </label> <br>
+        <input type="checkbox" id = "wellNtAp">
+        <label for = "wellNtAp"> Not applicable </label> <br>
+        <input type="checkbox" id = "wellOther">
+        <label for = "wellOther"> Other </label> <br> <br>
+<br>
+
+    What needs improvement ? <br>
+    <input type="checkbox" id = "improve0">
+    <label for = "improve0"> Speed-related </label> <br>
+    <input type="checkbox" id = "improve1">
+    <label for = "improve1"> Drilling skills </label> <br>
+    <input type="checkbox" id = "improve2">
+    <label for = "improve2">Practice-related </label> <br>
+    <input type="checkbox" id = "improve3">
+    <label for = "improve3"> Indirect vision</label> <br>
+    <input type="checkbox" id = "improve4">
+    <label for = "improve4"> Focus</label> <br>
+    <input type="checkbox" id = "improve5">
+    <label for = "improve5"> Posture/Ergonomics </label> <br>
+    <input type="checkbox" id = "improve6">
+    <label for = "improve6"> Happy with status quo</label> <br>
+    <input type="checkbox" id = "improveNtAp">
+    <label for = "improveNtAp"> Not applicable</label> <br>
+    <input type="checkbox" id = "improveOther">
+    <label for = "improveOther"> Other</label> <br>
+
+
+
+
+
+
+    How is your understanding of the procedure?
+    <select id = "procedureUnderstandSelect">
+    <option>select</option>
+    <option>Thorough</option>
+    <option>Appropriate</option>
+    <option>Lacking</option>
+    </select>
+
+
+</div>
+
+<div id = "optionLearn">
+     Today, we learned about <input id = "todayIlearnedInput" type = "text">
+    
+    <div> What comments would you make about today's session? </div>
+    <input id = "commentsToday" type = "text"> 
+
+</div>
+
+    <div id = "optionStan"> 
+
+        <p> Did you meet your standards?</p>
+        <select id = "stan1"> 
+        <option value = "select"> select </option>
+        <option value = "exceeded"> Exceeded </option>
+        <option value = "met"> Met </option>
+        <option value = "below"> Slightly Below </option>
+        </select>
+    
+
+
+        <p> What things might you need more help with?</p>
+        <br>
+        <input type="checkbox" id = "help1">
+        <label for = "help1"> Posture/Ergonomics</label> <br>
+        <input type="checkbox" id = "help2">
+        <label for = "help2"> Indirect vision</label> <br>
+        <input type="checkbox" id = "help3">
+        <label for = "help3"> Rubber dam application</label> <br>
+        <input type="checkbox" id = "help4">
+        <label for = "help4"> Drilling correct cavity dimensions</label> <br>
+        <input type="checkbox" id = "help5">
+        <label for = "help5"> Application of a V3 matrix system </label> <br>
+        <input type="checkbox" id = "help6">
+        <label for = "help6"> Application of a tofflemire </label> <br>
+        <input type="checkbox" id = "help7">
+        <label for = "help7"> Filling appropriately </label> <br>
+        <input type="checkbox" id = "help8">
+        <label for = "help8"> Finishing/Polishing </label> <br>
+        <input type="checkbox" id = "helpOther">
+        <label for = "helpOther"> Other</label> <br><br>
+
+        What would help you to understand things better?<br>
+
+        <input type="checkbox" id = "understand1">
+        <label for = "understand1"> More practice </label> <br>
+        <input type="checkbox" id = "understand2">
+        <label for = "understand2"> Re-watch the videos </label> <br>
+        <input type="checkbox" id = "understand3">
+        <label for = "understand3"> Read the relevant chapter </label> <br>
+        <input type="checkbox" id = "understand4">
+        <label for = "understand4"> Reading some external articles </label> <br>
+        <input type="checkbox" id = "understand1">
+        <label for = "understand1"> Reviewing some of the old lessons </label> <br>
+        <input type="checkbox" id = "understandOther">
+        <label for = "understandOther"> I'm happy with my understanding </label> <br>
+        
+    </div>
+
+    
+    <div id = "optionEncounter"> 
+        <br>
+        <input type = "checkbox" id = "encounter0">
+        <label for = "encounter0"> Posture/Ergonomics </label><br>
+        <input type = "checkbox" id = "encounter1">
+        <label for = "encounter1"> Indirect vision </label><br>
+        <input type = "checkbox" id = "encounter2">
+        <label for = "encounter2"> Rubber dam application </label><br>
+        <input type = "checkbox" id = "encounter3">
+        <label for = "encounter3"> Drilling correct cavity dimensions </label><br>
+        <input type = "checkbox" id = "encounter4">
+        <label for = "encounter4"> Overfilled restoration</label><br>
+        <input type = "checkbox" id = "encounter5">
+        <label for = "encounter5"> Underfilled restoration</label><br>
+        <input type = "checkbox" id = "encounter6">
+        <label for = "encounter6"> Finishing/Polishing </label> <br>
+        <input type = "checkbox" id = "encounterOther">
+        <label for = "encounterOther"> Other </label> <br>
+    </div>
+
+    <div id = "optionPrep">
+        How did you prepare yourself for this session? (3 options max.)
+        <br>
+
+        <input type="checkbox" id = "Prep1">
+        <label for = "Prep1"> Reading the weekly content</label> <br>
+        <input type="checkbox" id = "Prep12">
+        <label for = "Prep12"> Watching the PebblePad videos </label> <br>
+        <input type="checkbox" id = "Prep3">
+        <label for = "Prep3"> Reading the relevant chapter </label> <br>
+        <input type="checkbox" id = "Prep4">
+        <label for = "Prep4"> Reading some external articles </label> <br>
+        <input type="checkbox" id = "Prep5">
+        <label for = "Prep5"> Reviewing some of the old content</label> <br>
+        <input type="checkbox" id = "Prep6">
+        <label for = "Prep6"> Completing the Pre-attendance tasks </label> <br>
+        <input type="checkbox" id = "PrepOther">
+        <label for = "PrepOther"> Other </label> <br>
+
+        My goal for next session is to <input type = "text"> <br>
+
+
+
+        <br>
+        What kind of support would you require from your demonstrators?
+        <br>
+        <input type = "checkbox" id = "support0">
+        <label for = "support0"> Happy with the status quo </label><br>
+        <input type = "checkbox" id = "support1">
+        <label for = "support1"> Need more constructive feedback </label><br>
+        <input type = "checkbox" id = "support2">
+        <label for = "support2"> Need more less feedback </label><br>
+        <input type = "checkbox" id = "supportOther">
+        <label for = "supportOther"> Other/None </label><br>
+        
+    </div>
+
+    <div id = "optionProcedure">
+
+        How is your understanding of the procedure?
+        <select>
+        <option>select</option>
+        <option>Thorough</option>
+        <option>Appropriate</option>
+        <option>Lacking</option>
+        </select>
+        <br>
+
+        What kind of support would you require from your demonstrators?
+        <br>
+        <input type = "checkbox" id = "support0">
+        <label for = "support0"> Happy with the status quo </label><br>
+        <input type = "checkbox" id = "support1">
+        <label for = "support1"> Need more constructive feedback </label><br>
+        <input type = "checkbox" id = "support2">
+        <label for = "support2"> Need more less feedback </label><br>
+        <input type = "checkbox" id = "supportOther">
+        <label for = "supportOther"> Other/None </label><br> 
+    
+    </div>
+
+
+
+
+        <div id = "optionOther">
+            What's the main obstacle this session?
+            <select id = "selectOther">
+                <option value = "select">select</option>
+                <option value = "ergo"> Posture </option>
+            <option value = "select"> Indirect Vision </option>
+            <option value = "select"> Drilling </option>
+            <option value = "select"> Bonding </option>
+            <option value = "select"> Restoring </option>
+            <option value = "select"> Light Curing</option>
+            <option value = "select"> Finishing</option>
+            <option value = "select"> Polishing </option>
+            <option value = "select"> Anatomy recreation</option>
+            <option value = "select"> Not having enough hands </option>
+            <option value = "none"> No obstacles so far</option>
+
+            </select>
+        <br>
+
+
+        How can you do better next session? <br>
+        <input type="checkbox" id = "Prep1">
+        <label for = "Prep1"> Reading the weekly content</label> <br>
+        <input type="checkbox" id = "Prep12">
+        <label for = "Prep12"> Watching the PebblePad videos </label> <br>
+        <input type="checkbox" id = "Prep3">
+        <label for = "Prep3"> Reading the relevant chapter </label> <br>
+        <input type="checkbox" id = "Prep4">
+        <label for = "Prep4"> Reading some external articles </label> <br>
+        <input type="checkbox" id = "Prep5">
+        <label for = "Prep5"> Reviewing some of the old content</label> <br>
+        <input type="checkbox" id = "Prep6">
+        <label for = "Prep6"> Completing the Pre-attendance tasks </label> <br>
+    </div>
+
+    
+        <div id = "sessionTypeCario">
+
+        
+            Were you assigned a preparation this session? 
+            <select id = "carioTog">
+                <option value = "select"> select </option>
+                <option value = "0"> No </option> 
+                <option value = "1"> Yes </option>
+            </select>
+
+            <div id = "preparationClass"> <br>
+
+            What class was this preparation?
+            <select>
+                <option value = "select"> select </option>
+                <option value = "1"> I </option>
+                <option value = "2"> II </option>
+                <option value = "3"> III </option>
+                <option value = "4"> IV </option>
+                <option value = "5"> V </option>
+                <option value = "6"> VI  </option>
+               
+            </select>
+
+            Did you restore it?
+
+            <select>
+                <option value = "select"> select </option>
+                <option value = "yes"> Yes </option>
+                <option value = "no"> No </option>
+            </select>
+            </div>
+      
+           
+
+            <br>
+        </div>
+
+        <div id = "sessionTypePerio">
+            Which of these instruments did you mainly use?
+            <select>
+                <option value = "0"> select </option>
+                <option value = "1"> Dominion Explorer</option>
+                <option value = "2"> Periodontal Probe </option>
+                <option value = "3"> Black Jack Scaler</option>
+                <option value = "4"> Gracey Curette 13/14</option>
+                <option value = "5"> Gracey Curette 15/16</option>
+                <option value = "6"> Double Gracey</option>
+                <option value = "7"> Ultrasonic Piezo </option>
+                <option value = "8"> Ultrasonic Cavitron </option>
+                <option value = "9"> Dominion Explorer</option>
+                <option value = "10"> Sharpening Plate</option>
+            </select>
+
+            
+        </div>
+
+
+
+
+    <div> 
+        <br>
+        How many demonstrators helped you ?
+        <select id = "archetype2"> 
+            <option value="select"> select</option>
+            <option value="demon1"> 1</option>
+            <option value="demon2"> 2</option>
+            <option value="demonKeep"> I prefer my ending generic </option>
+        </select>
+    </div>
+
+    <div id = "demon1Toggle"> 
+       Their name was <input id = "demon1" type="text">
+    </div>
+
+    <div id = "demon2Toggle"> 
+        Their names were <input id = "demon2" type="text"> and <input id = "demon3" type="text">
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+        <button id="generateRef"> Generate</button>
+
+    </div>
+
+    <div id = "FinalisedReflection">
+        <p id = "statements"> </p>
+        <p id ="reflections1"></p>
+        <p id ="reflections2"></p>
+        <p class = "spanClass" id ="reflections3">
+            <p class = "spanClass" id = "r31"> </p>
+            <p class = "spanClass" id = "r32"> </p>
+            <p class = "spanClass" id = "r33"> </p>
+            <p class = "spanClass" id = "r34"> </p>
+            <p class = "spanClass" id = "r35"> </p>
+            <p class = "spanClass" id = "r36"> </p>
+            <p class = "spanClass" id = "r37"> </p>
+            <p class = "spanClass" id = "r38"> </p>
+        </p>
+        <p class="spanclass" id = "reflectionsx">
+            <p class = "spanClass" id = "reflections4"> </p>
+            <p class = "spanClass" id = "N1"> </p>
+            <p class = "spanClass" id = "N2"> </p>
+            <p class = "spanClass" id = "N3"> </p>
+            <p class = "spanClass" id = "N4"> </p>
+            <p class = "spanClass" id = "N5"> </p>
+            <p class = "spanClass" id = "N6"> </p>
+            <p class = "spanClass" id = "N7"> </p>
+            <p class = "spanClass" id = "N8"> </p>
+            <p class = "spanClass" id = "N9"> </p>
+            <p class = "spanClass" id = "N10"> </p>
+            <p class="spanclass" id = "reflectionsz">
+                <p class = "spanClass" id = "reflectionsy"> </p>
+                <p class = "spanClass" id = "A1"> </p>
+                <p class = "spanClass" id = "A2"> </p>
+                <p class = "spanClass" id = "A3"> </p>
+                <p class = "spanClass" id = "A4"> </p>
+                <p class = "spanClass" id = "A5"> </p>
+                <p class = "spanClass" id = "A6"> </p>
+            </p>
+        </p>
+        <p id = "reflectionsConc"></p>
+            
+     </div>
+     
+</body>
+
+<script>
+    /* Excerpt:
+    In this session I applied all the knowledge I have gained so far. 
+    Unlike other sessions, I applied the rubber dam faster and more efficiently. 
+    I was advised the clamp can be better adjusted if tilted mesio-lingually to account for extra length.
+    I also feel I have improved on my fissure sealant application skills.
+    Applying the fissure sealant on 46 went well, however I added extra sealant on the medial 
+    fissure (which affected the occlusal surface) the more posterior and anterior fissures had the right amount.
+    The fissure sealant on 43 was done much better as I was able to add the correct amount on all fissures.
+    Overall, I was really pleased with my results today. The tips I gained in this session will make me more 
+    confident during the assessment next week. */
+    
+    /* Beginning Sentence
+    */
+    var reflectiveVocab = ["Looking back", "In hindsight", "" , "Retrospectively,  ", ] //1/10 chance of mentioning
+
+
+    //Cariology 
+
+    var judgementWordsOpti = ["The session went pretty well", "*", "This session was pretty good", "This practical went great.", "The session went fine", "in this session I accomplished my goals to a good level.", "I have improved since the last time", "I performed slightly above expected", "I met the goals of this session", "I enjoyed today's session.", "This session was good.", " I enjoyed today's session.", "I'd give myself an 8 out of 10 for this session.", "I am happy with the way this session went", "The session overall was good.", "I am happy about how the session went today.", ]
+    var OptiReasonComplete = [" and I was able to accomplish all of the allocated tasks in time", " and I was very productive.", "I completed the work in time without too much difficulty.", " and I was time-efficient this session", "and "]
+    
+
+    var judgementWordsNeutral = ["the session went okay", "I feel I performed within expectation", "my skills were steady this session", "in this session I accomplished the tasks to an acceptable level.", "I performed within expectations.", "I am okay with how the session went.", "this session was alright.", "I would give myself a 5 or 6 out of 10 this session.", "today's session was not too bad.", "I didn't do way below my expectations which is okay." ]
+    var NeutraReasonIncomplete = ["I needed more time to complete the tasks but was mostly done.", "I would have really wanted to get to the last part.", "I needed slightly more time to finish up the last bits.", "I was mostly done with my work.", "I had some last refinements to make.", ]
+
+    var judgementWordsPessi = ["I could have definitely done a slightly better job than this"," the session went slightly shabbier than I expected.", "Today I went slightly below my expectations. I need to work on my skills.", "I was slightly off target this session but I'll do better next time", "I was off the ball today but I learned my lesson", "I am slightly below my expectations and goals but I'll keep going until I master the new skills",]
+    var PessiReasonInComplete = ["My pace was slightly below expectations.", "I needed more time to complete the tasks.", "I took more time than expected.", "The time passed quickly this session before I could finish off everything.", ]
+
+    var tasksFinishedYes =  ["I managed to complete the tasks in time.", "I completed the allocated tasks in time", "" ]
+    var tasksFinishedMostly = ["I needed slightly more time to complete everything outlined on PebblePad.", "With some more time I could have done slightly more fine-tuning but it's alright", "", "I finished the main allocated tasks this session", "The time went by really quickly.", "I completed the tasks alright.", "I need to work on my speed and efficiency more.", "More time was going to allow me to finish up the remaining tasks.", "I mostly finished the tasks in time", "I was able to do the bulk of the task but had some bits of finishing up to do.", "I was able to complete the bulk fo the tasks"]
+    var tasksUnfinished =  ["Unfortuantely, I couldn't finish the PebblePad tasks in time.", "Sadly, I didn't finish all the tasks but I'll try harder next time.", "I was slightly slower than expected and eventually ran out of time.", "", "I need to work on my pace to get everything done in time next session."]
+    
+    var problemsArc = ["I found it difficult to", "Today I was met with some obstacles. I found it hard to ", "At first it was certainly a challenge to", "I encountered some obstacles" ]
+   
+    var fillerEpic = ["As an upside, I will utilise my upcoming SDL session just for that."," I'll keep working on this issue the upcoming sessions.", "My next SDL will involve more practice until my level gets to where it needs to be.", "", ""]
+
+    var problemsSolutions = [""]
+    var feelingaboutClinic = ["I feel somewhat comfortable performing such a task in clinic."]
+
+
+
+    var whatWentWellArc = [""];
+    var whatNeedsImprov = [""];
+    var understandingProcedure = [""]
+
+    /// Radiography 
+    
+    var RadiographyQ1PA = ["I exposed a Periapical radiograph.", "Periapical Radiograph", " Radiograph type: PA"]
+    var RadiographyQ1BW = ["This radiograph was a bitewing", "I exposed a Bitewing", "Bitewing Radiograph", "Radiograph type: BW"]
+    var BWIndications = ["early detection of primary coronal carious lesions on occlusal and proximal surfaces.", "detection of proximal root caries.", "assessment of the quality of restorations and detection of secondary caries in the proximal area.", "detection of lesion extension in enamel and dentinal carious lesions.", "Long-term monitoring of carious lesions."]
+   
+    IndicationsBW = ["It is indicated for ", "BWs are indicated for ", "Indications: ", "Bitewings are used for "]
+    var RadiographyQ1OC = ["This radiograph was an occlusal radiograph", "Radiograph Type: Occlusal Radiograph"]
+   var clearanceY = [" I was able to capture the target with sufficient clearance", "The prescribed area was sufficiently covered", "The target teeth were captured", "The target region was capture."] 
+   var clearanceN = [" I wasn't able to capture the target region", "I couldn't capture the full prescribed region", "I slightly missed the prescribed region"]
+   
+    var andBlock = ["and",""];
+    var thereWas = ["There was", "there was", "I had", "There's"]
+    var otherErrorsScript = ["My errors included "]
+    var errorsSpan = ["r31", "r32", "r33", "r34", "r35", "r36", "r37","r38"]
+    var NALSPAN = ["reflections4","N1", "N2", "N3", "N4", "N5", "N6", "N7", "N8", "N9", "N10"]
+    var aLso = ["also"]
+    var coneCut = ["a conecut", "a conecut from the PID", "misplacement of the PID", 
+    "a conecut", "a PID-related conecut", "a conecut"]
+    var coneCutC = ["I should have centred the PID on the film.", "I should have positioned my PID such that it covered the entire film.", "I needed to adjust my PID.", "I should have tweaked the PID position.", "The position of the PID could have been better."]
+    var eLongation = ["elongation of the teeth", "a steep vertical angulation (elongation)", "elongation" , "vertical elongation", "elongation"]
+    var eLongationC = ["This could have been avoided with a flatter angle but not too flat.", "The PID angle needed minor adjustment", " The angle of the PID needed to be more flat","I needed to reduce the PID angle" , "I needed to reduce the PID angle", "In order to fix elongation, the PID angle needed to be raised."]
+    var foreshortening = ["foreshortening of the teeth", "a flat vertical angulation of the PID (foreshortening)", "forshortening due to a flat angle of the PID", "foreshortening which distorts accuracy", "foreshortening limting the diagnostic ability of the radiograph"]
+    var incorrectSettings = ["incorrect exposure settings ", "sub-optimal exposure settings", "also I forgot to select the recommended exposure settings", "my exposure settings were not appropriate", "not selecting the default exposure settings"]
+    var upperArchRatio = ["positioning the film a little higher than necessary", "positioning the film a little higher than necessary", "placing the phosphor plate above the midline", "upward skew of the radiograph (positing error)", "the upper arch covered over half the phosphor plate", "exposing more of the upper jaw", "exposing less of the lower jaw than I should", "the upper arch ratio was higher than the lower", "my upper arch was overly long", ""]
+    var lowerArchRatio = ["positioning the film a little lower than necessary", "positioning the film a little lower than necessary", "a downward skew", "placing the phosphor plate below the midline", " placing the film more inferiorly than I should have",  "exposing more of the lower jaw than necessary", "downward skew:the lower jawbone took more than 50% of the radiograph."]
+    var anteriorFilmPlacement = ["placing the film too far anteriorly", " positioning the film more anteriorly", "exposing slightly more anteriorly than necessary", "anterior misplacement", "sub-optimal film placement"]
+    var posteriorFilmPlacement = ["positioning the film more posteriorly", "placing the film too far posteriorly", "exposing more posteriorly than necessary", "posterior film misplacement", "incorrect horizontal film placement"]
+  // Anatomical Landmarks
+    var NLT0 = ["On the radiograph, These were the normal anatomical landmarks:", "Anatomical Landmarks:", "Normal Anatomical Landmarks:", "The normal anatomical landmarks included", "The radiograph included:", "These landmarks were visible on the radiograph:"]
+    var NLT1 = ["alveolar crest", "alveolar bone", "alveolar ridge", "jaw bone", "alveolar process of the maxilla", "alveolar process", "trabecular bone", "alveolar crest", "cortical bone"];
+    var NLT2 = ["tooth enamel", "enamel", "enamel", "enamel tissue", "enamel"];
+    var NLT3 = ["tooth dentine", "dentine", "a layer of dentine"];
+    var NLT4 = ["pulp chamber", "dental Pulp", "pulp", "dental pulp", " pulp horns", "tooth pulp", "crown and root pulp"];
+    var NLT5 = ["mental foramen"];
+    var NLT6 = ["lamina dura", "intact lamina dura", "visible lamina dura"];
+    var NLT7 = ["Cementoenamel Junction", "CEJ", "cementum", "a thin layer of cementum","CEJ", "CEJ"];
+    var NLT8 = ["apical foramen"];
+    var NLT9 = ["roots", "tapered roots", "teeth roots"];
+    var NLT10 = ["root canals", "radicular pulp"];
+
+//Applicable Artifacts 
+  
+   var AAT0 = ["The applicable artifacts included:", "Applicable artifacts:", "Artifacts:", "Film artificats:"]
+   var AAT1 = ["scratch marks", "scratches", "scratches", "some scratches on the film", "some scratches"]
+   var AAT2 = [" some bends", "bending", "miniscule bends", "tiny bends", "bends", "bends", "bending", "bend marks"]
+   var AAT3 = [" blur", "blurred areas on the film", "a blurry region on the film", "a blurred area on the film", "a blurry region on the film"]
+   var AAT4 = [" an opaque circle", "the magnet was visible", "the radioopacity associated with the magnet", "magnet radioopacity (wrong film side)", "magnet-related artifact"]
+   var AAT5 = [" the mannequin's head "]
+   var AAT6 = ["the iron stand", "a portion of the mannequin stand", "mannequin-related artifact", "a mannequin-related artifact"]
+
+
+
+
+
+    var FinaleOpti = ["Overall, I was really pleased with my results today. The tips I gained in this session will make me more confident for the upcoming sessions and assessments.", ]
+    var FinaleNeut = [""]
+    var FinalePessi = [""]
+
+    var demon1 = ["Thanks", "Thank you", ""]
+    var demon1Plus = ["for your help this session", "for your help today", " for your tips and insight"]
+    var demon2 = [" "]
+    var demonKept = ["I gained some useful insight this session.", "", "I learned a lot from today's session.", "This session was very informative.", "Today's tips were really insightful.", "I gained some useful insights from today's session.", ""]
+
+    /*
+
+    What problems did you encounter while you were working today?
+    How did you solve them? How do you feel about performing this procedure in clinic?
+    . 
+    What went well? What needs improvement? How is your understanding of the procedure? 
+    What's one thing that you would like to try to improve upon? 
+
+    Did you meet your standards? What things you might want more help with? 
+    What would help you to understand things better?
+    
+    What did you learn today? What comments would you make about your practical session today?
+
+    How did you prepare yourself for this session? What's one goal you would like to set for yourself for next time? 
+    
+    How would you describe your understanding of the procedure? What kind of support would you need from your teacher?
+*/
+
+// SessionTypeCario and Perio togglers
+var perio = document.getElementById("sessionTypePerio");
+perio.style.display = "none";
+var cario = document.getElementById ("sessionTypeCario");
+cario.style.display = "none";
+// Preparation Class
+var prepClass = document.getElementById("preparationClass");
+prepClass.style.display = "none";
+
+//Cariotog
+var carioTog = document.getElementById("carioTog");
+
+
+//Overlaps toggler for radiography
+var overlap1 = document.getElementById("overlapToggle1");
+overlap1.style.display = "none";
+var overlap2 = document.getElementById("overlapToggle2");
+overlap2.style.display = "none";
+var overlap3 = document.getElementById("overlapToggle3");
+overlap3.style.display = "none";
+var overlap4 = document.getElementById("overlapToggle4");
+overlap4.style.display = "none";
+
+//Other Togglers to show input when checkbox is checked
+
+
+
+//Question 2 toggler
+
+var finishedTasks = document.getElementById("finishedTasks");
+finishedTasks.style.display = "none";
+
+//Question 3 toggler 
+var overallRating = document.getElementById("overallRatings");
+overallRating.style.display = "none";
+
+//Question categories toggler
+
+var session = document.getElementById("sessionAB");
+sessionAB.style.display = "none";
+
+var session = document.getElementById("sessionR");
+sessionR.style.display = "none";
+
+var hiddenForm = document.getElementById("optionEncounter");
+hiddenForm.style.display = "none";
+
+var hiddenForm1 = document.getElementById("optionWell");
+hiddenForm1.style.display = "none";
+
+var hiddenForm2 = document.getElementById("optionStan");
+hiddenForm2.style.display = "none";
+
+var hiddenForm3 = document.getElementById("optionLearn");
+hiddenForm3.style.display= "none";
+
+var hiddenForm4 = document.getElementById("optionPrep");
+hiddenForm4.style.display= "none";
+
+
+var hiddenForm5 = document.getElementById("optionProcedure");
+hiddenForm5.style.display= "none";
+
+var hiddenForm6 = document.getElementById("optionOther");
+hiddenForm6.style.display= "none";
+
+var demon1Toggle = document.getElementById("demon1Toggle");
+demon1Toggle.style.display = "none";
+
+var demon2Toggle = document.getElementById("demon2Toggle");
+demon2Toggle.style.display = "none";
+
+
+//Function that toggles checkboxes for Question 3
+
+onClickOption1Toggle = function (){
+    var toggleOne = document.getElementById("archetype");
+    var selectedValue = toggleOne.options[toggleOne.selectedIndex].value;
+    if (toggleOne.value === "problemsOpt") {
+        hiddenForm.style.display = "block";
+        hiddenForm1.style.display = "none";
+        hiddenForm2.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "none";
+        hiddenForm5.style.display= "none";
+        hiddenForm6.style.display= "none";
+    };
+
+    if (toggleOne.value === "wellOpt") {
+        hiddenForm1.style.display = "block";
+        hiddenForm.style.display = "none";
+        hiddenForm2.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "none";
+        hiddenForm5.style.display= "none";
+        hiddenForm6.style.display= "none";
+        
+    };
+    
+    if (toggleOne.value === "didStandards") {
+        hiddenForm2.style.display = "block";
+        hiddenForm1.style.display = "none";
+        hiddenForm.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "none";
+        hiddenForm5.style.display= "none";
+        hiddenForm6.style.display= "none";
+    };
+
+    if (toggleOne.value === "sessionPrep") {
+        hiddenForm2.style.display = "none";
+        hiddenForm1.style.display = "none";
+        hiddenForm.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "block";
+        hiddenForm5.style.display= "none";
+        hiddenForm6.style.display= "none";
+
+    }
+
+    if (toggleOne.value === "learnToday") {
+        hiddenForm2.style.display = "none";
+        hiddenForm1.style.display = "none";
+        hiddenForm.style.display = "none";
+        hiddenForm3.style.display = "block";
+        hiddenForm4.style.display = "none";
+        hiddenForm5.style.display= "none";
+        hiddenForm6.style.display= "none";
+        
+    }
+
+    if (toggleOne.value === "procedureUnderstand") {
+        hiddenForm5.style.display= "block";
+        hiddenForm2.style.display = "none";
+        hiddenForm1.style.display = "none";
+        hiddenForm.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "none";
+        hiddenForm6.style.display= "none";
+    }
+
+    if (toggleOne.value === "other") {
+        hiddenForm5.style.display= "none";
+        hiddenForm2.style.display = "none";
+        hiddenForm1.style.display = "none";
+        hiddenForm.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "none";
+        hiddenForm6.style.display= "block";
+    }
+
+
+    if (toggleOne.value === "select") {
+        hiddenForm.style.display = "none";
+        hiddenForm1.style.display = "none";
+        hiddenForm2.style.display = "none";
+        hiddenForm3.style.display = "none";
+        hiddenForm4.style.display = "none";
+        hiddenForm5.style.display= "none";
+        hiddenForm6.style.display= "none";
+    };
+
+}
+
+
+
+
+//Function used to toggle textboxes for question 4
+
+onClickOption2Toggle = function (){
+    var toggleTwo = document.getElementById("archetype2");
+    var selectedValue = toggleTwo.options[toggleTwo.selectedIndex].value;
+    if (toggleTwo.value === "select" || toggleTwo.value === "demonKeep" ) {
+        demon1Toggle.style.display = "none";
+        demon2Toggle.style.display = "none";
+    };
+
+    if (toggleTwo.value === "demon1") {
+        demon1Toggle.style.display = "block";
+        demon2Toggle.style.display = "none";
+    };
+
+    if (toggleTwo.value === "demon2") {
+        demon1Toggle.style.display = "none";
+        demon2Toggle.style.display = "block";
+    };
+
+};
+
+
+onClickOption0Toggle = function (){
+    var toggleTwo = document.getElementById("sessionType");
+    var selectedValue = toggleTwo.options[toggleTwo.selectedIndex].value;
+    if (toggleTwo.value === "select") {
+        sessionR.style.display = "none";
+        sessionAB.style.display = "none";
+    };
+
+    if (toggleTwo.value === "C") {
+        sessionR.style.display = "none";
+        finishedTasks.style.display = "block";
+        overallRating.style.display = "block";
+        sessionAB.style.display = "block";
+        perio.style.display = "none";
+        cario.style.display = "block";
+    }
+
+    if (toggleTwo.value === "P") {
+        sessionR.style.display = "none";
+        finishedTasks.style.display = "block";
+        overallRating.style.display = "block";
+        sessionAB.style.display = "block";
+        perio.style.display = "block";
+        cario.style.display = "none";
+    }
+
+    if (toggleTwo.value === "R") {
+        sessionR.style.display = "block";
+        sessionAB.style.display = "none";
+        finishedTasks.style.display = "none";
+        overallRating.style.display = "none";
+        perio.style.display = "none";
+        cario.style.display = "none";
+       
+    };
+
+};
+
+onClickOption3Toggle = function (){
+    var toggleTwo = document.getElementById("overlapNumber");
+    var selectedValue = toggleTwo.options[toggleTwo.selectedIndex].value;
+    if (toggleTwo.value === "0") {
+        overlap1.style.display = "none";
+        overlap2.style.display = "none";
+        overlap3.style.display = "none";
+        overlap4.style.display = "none";
+    };
+    if (toggleTwo.value === "1") {
+        overlap1.style.display = "block";
+        overlap2.style.display = "none";
+        overlap3.style.display = "none";
+        overlap4.style.display = "none";
+    }
+
+    if (toggleTwo.value === "2") {
+        overlap1.style.display = "block";
+        overlap2.style.display = "block";
+        overlap3.style.display = "none";
+        overlap4.style.display = "none";   
+    };
+    if (toggleTwo.value === "3") {
+        overlap1.style.display = "block";
+        overlap2.style.display = "block";
+        overlap3.style.display = "block";
+        overlap4.style.display = "none";   
+    };
+    if (toggleTwo.value === "4") {
+        overlap1.style.display = "block";
+        overlap2.style.display = "block";
+        overlap3.style.display = "block";
+        overlap4.style.display = "block";   
+    };
+
+};
+
+carioToggler = function(){
+    var carioToggle = document.getElementById("carioTog");
+    var selectedValue = carioToggle.options[carioToggle.selectedIndex].value;
+    if (carioToggle.value === "0") {
+        prepClass.style.display = "none";
+        
+    };
+    if (carioToggle.value === "1") {
+        prepClass.style.display = "block"; 
+    };
+
+    if (carioToggle.value === "2") {
+        prepClass.style.display = "block"; 
+    };
+
+
+
+};
+
+var generate = document.getElementById("generateRef");
+
+onGenerateClick = function(){
+    var toggleTwo = document.getElementById("sessionType");
+    var paragraph1 = document.getElementById("reflections1");
+    var paragraph2 = document.getElementById("reflections2");
+    var paragraph3 = document.getElementById("reflections3")
+    var paragraph4 = document.getElementById("reflectionsConc");
+    var overallRating = document.getElementById("overallRating");
+    var demonValue = document.getElementById("archetype2")
+    var selectedValue = overallRating.options[overallRating.selectedIndex].value;
+    var probability1 = Math.random()*10; 
+
+    if (toggleTwo.value === "select") {
+        paragraph1.style.textDecorationColor= "blue";
+        paragraph1.textContent += "You haven't selected what session this was. The Smart Algorthim needs this input to generate your personalised reflection ;)."
+    }
+
+    //Radiography Conditions
+    if (toggleTwo.value === "R") {
+
+        if (document.getElementById("radInput").value){
+        paragraph2.textContent = "The teeth I exposed were" + " " + document.getElementById("radInput").value +". ";
+        }
+
+        if (document.getElementById("imageCaptured").value === "yes") {paragraph2.textContent += clearanceY[Math.floor(Math.random()* clearanceY.length)] }
+        if (document.getElementById("imageCaptured").value === "no") {paragraph2.textContent += clearanceN[Math.floor(Math.random()* clearanceN.length)]}
+        
+
+        if (document.getElementById("radiographType").value === "select") {
+      
+        }
+        if (document.getElementById("radiographType").value === "bitewing") {
+            paragraph1.textContent += RadiographyQ1BW[Math.floor(Math.random()* RadiographyQ1BW.length)] + BWIndications[Math.floor(Math.random()* BWIndications.length)]
+        }
+
+        if (document.getElementById("radiographType").value === "periapical") {
+            paragraph1.textContent = RadiographyQ1PA[Math.floor(Math.random()* RadiographyQ1PA.length)]
+        }
+        if (document.getElementById("radiographType").value === "occlusal") {
+            paragraph1.textContent = RadiographyQ1OC[Math.floor(Math.random()* RadiographyQ1OC.length)]
+        }
+
+        var oN = document.getElementById("overlapNumber");
+        
+    
+
+       if (oN.value !== "0"){
+        
+        paragraph2.textContent += " ." + " My errors included a" + " " + document.getElementById("firstOverlap").value + " " + document.getElementById("overlapNature1").value + " " + "between " + document.getElementById("ol11").value + "  and" + " " + document.getElementById("ol12").value; 
+        if (oN.value === "2"){
+            paragraph2.textContent +=  "," + " " + andBlock[0] + " " + document.getElementById("secondOverlap").value + " " + document.getElementById("overlapNature2").value + " " + "between " + document.getElementById("ol21").value + " " + "  and" + " " +  document.getElementById("ol22").value;
+        }
+        if (oN.value === "3"){
+            paragraph2.textContent +=  ", " + " " + andBlock[1] + " " + document.getElementById("secondOverlap").value + " " + document.getElementById("overlapNature2").value + " " + "between " + document.getElementById("ol21").value + " " + "  and" + " " +  document.getElementById("ol22").value;
+            paragraph2.textContent +=  ", " + " " + andBlock[0] + " " + document.getElementById("thirdOverlap").value + " " + document.getElementById("overlapNature3").value + " " + "between " + document.getElementById("ol31").value + " " +"  and" + " " +document.getElementById("ol32").value;
+        }
+
+        if (oN.value === "4"){
+            paragraph2.textContent +=  "," + " " + andBlock[1] + " " + document.getElementById("secondOverlap").value + " " + document.getElementById("overlapNature2").value + " " + "between "  + document.getElementById("ol21").value + " " + "  and" + " " +  document.getElementById("ol22").value;
+            paragraph2.textContent +=  ", " + " " + andBlock[1] +  " " + document.getElementById("thirdOverlap").value + " " + document.getElementById("overlapNature3").value + " " + "between " + document.getElementById("ol31").value + " " +"  and" + " " +document.getElementById("ol32").value;
+            paragraph2.textContent += "," + " " + andBlock[0] + " " + document.getElementById("fourthOverlap").value + " " + document.getElementById("overlapNature4").value + " " + "between " + document.getElementById("ol41").value + " " + " and" + " " + document.getElementById("ol42").value;
+        }}
+
+        
+
+        
+        // NAL Variables
+
+        var N1 = document.getElementById("NAL1");
+        var N2 = document.getElementById("NAL2");
+        var N3 = document.getElementById("NAL3");
+        var N4 = document.getElementById("NAL4");
+        var N5 = document.getElementById("NAL5");
+        var N6 = document.getElementById("NAL6");
+        var N7 = document.getElementById("NAL7");
+        var N8 = document.getElementById("NAL8");
+        var N9 = document.getElementById("NAL9");
+        var N10 = document.getElementById("NAL10");
+
+
+       
+    if (N1.checked == true || N2.checked == true || N3.checked == true 
+    || N4.checked == true ||N5.checked == true ||N6.checked == true ||N7.checked == true 
+    || N8.checked == true ||N9.checked == true ||N10.checked == true) {document.getElementById("reflections4").textContent += NLT0[Math.floor(Math.random()* NLT10.length)];}
+
+    if (N1.checked == true) {document.getElementById("N1").textContent += NLT1[Math.floor(Math.random()* NLT1.length)];
+        if (N2.checked == true || N3.checked == true 
+    || N4.checked == true ||N5.checked == true ||N6.checked == true ||N7.checked == true 
+    || N8.checked == true ||N9.checked == true ||N10.checked == true) document.getElementById("N1").textContent += "," }
+
+    if (N2.checked == true) {document.getElementById("N2").textContent += NLT2[Math.floor(Math.random()* NLT2.length)];
+        if (N3.checked == true || N4.checked == true ||N5.checked == true 
+        ||N6.checked == true ||N7.checked == true || N8.checked == true 
+        ||N9.checked == true ||N10.checked == true) {document.getElementById("N2").textContent += ","  }
+    }
+
+    if (N3.checked == true) {document.getElementById("N3").textContent += NLT3[Math.floor(Math.random()* NLT3.length)];
+        if (N4.checked == true ||N5.checked == true 
+        ||N6.checked == true ||N7.checked == true || N8.checked == true 
+        ||N9.checked == true ||N10.checked == true) {document.getElementById("N3").textContent += ","  }
+}
+    if (N4.checked == true) {document.getElementById("N4").textContent += NLT4[Math.floor(Math.random()* NLT4.length)];
+        if (N5.checked == true ||N6.checked == true ||N7.checked == true 
+        || N8.checked == true ||N9.checked == true ||N10.checked == true) {document.getElementById("N4").textContent += ","  }
+        }
+    if (N5.checked == true) {document.getElementById("N5").textContent += NLT5[Math.floor(Math.random()* NLT5.length)];
+    if (N6.checked == true ||N7.checked == true || N8.checked == true 
+        ||N9.checked == true ||N10.checked == true) {document.getElementById("N5").textContent += ","  }}
+
+    if (N6.checked == true) {document.getElementById("N6").textContent += NLT6[Math.floor(Math.random()* NLT6.length)];
+        if (N7.checked == true || N8.checked == true 
+        ||N9.checked == true ||N10.checked == true) {document.getElementById("N6").textContent += ","  }}
+
+    if (N7.checked == true) {document.getElementById("N7").textContent += NLT7[Math.floor(Math.random()* NLT7.length)];
+        if (N8.checked == true ||N9.checked == true ||N10.checked == true) {document.getElementById("N7").textContent += ","  }
+        }
+    
+    if (N8.checked == true) {document.getElementById("N8").textContent += NLT8[Math.floor(Math.random()* NLT8.length)];
+        if (N9.checked == true ||N10.checked == true) {document.getElementById("N8").textContent += ","  }}
+
+    if (N9.checked == true) {document.getElementById("N9").textContent += NLT9[Math.floor(Math.random()* NLT9.length)];
+        if (N10.checked == true ){document.getElementById("N9").textContent += NLT9[Math.floor(Math.random()* NLT9.length)]};
+        }
+
+    if (N10.checked == true) {document.getElementById("N10").textContent += NLT10[Math.floor(Math.random()* NLT10.length)];}
+    
+    // Applicable Artifacts variables 
+
+    var AF1 = document.getElementById("AA1");
+    var AF2 = document.getElementById("AA2");
+    var AF3 = document.getElementById("AA3");
+    var AF4 = document.getElementById("AA4");
+    var AF5 = document.getElementById("AA5");
+    var AF6 = document.getElementById("AA6");
+
+    if (AF1.checked == true || AF2.checked == true || AF3.checked == true 
+    || AF4.checked == true ||AF5.checked == true || AF6.checked == true) {document.getElementById("A1").textContent +=AAT0[Math.floor(Math.random()* AAT0.length)]}
+
+    if (AF1.checked == true) {document.getElementById("A1").textContent +=AAT1[Math.floor(Math.random()* AAT1.length)]
+    if (AF2.checked == true || AF3.checked == true || 
+    AF4.checked == true ||AF5.checked == true || AF6.checked == true){document.getElementById("A1").textContent +=","}
+            }
+    if (AF2.checked == true) {document.getElementById("A2").textContent +=AAT2[Math.floor(Math.random()* AAT2.length)] 
+        if (AF3.checked == true || AF4.checked == true ||AF5.checked == true 
+        || AF6.checked == true){document.getElementById("A2").textContent +=","}
+        }
+    if (AF3.checked == true) {document.getElementById("A3").textContent +=AAT3[Math.floor(Math.random()* AAT3.length)] 
+            if (AF4.checked == true ||AF5.checked == true || AF6.checked == true){document.getElementById("A3").textContent +=","}}
+        
+    
+    if (AF4.checked == true) {document.getElementById("A4").textContent +=AAT4[Math.floor(Math.random()* AAT4.length)] 
+    if (AF5.checked == true || AF6.checked == true){document.getElementById("A4").textContent +=","}}
+   
+    if (AF5.checked == true) {document.getElementById("A5").textContent +=AAT5[Math.floor(Math.random()* AAT5.length)] 
+    if (AF6.checked == true){document.getElementById("A5").textContent +=","}
+}
+    if (AF6.checked == true) {document.getElementById("A6").textContent +=AAT6[Math.floor(Math.random()* AAT6.length)] }
+
+
+
+
+
+
+
+
+
+
+      
+       var oE1 = document.getElementById("otherErrors1");
+       var oE2 = document.getElementById("otherErrors2");
+       var oE3 = document.getElementById("otherErrors3");
+       var oE4 = document.getElementById("otherErrors4");
+       var oE5 = document.getElementById("otherErrors5");
+       var oE6 = document.getElementById("otherErrors6");
+       var oE7 = document.getElementById("otherErrors7");
+       var oE8 = document.getElementById("otherErrors8");
+    
+     
+    if (oE1.checked == true || oE2.checked == true 
+        ||oE3.checked == true ||oE4.checked == true 
+        ||oE5.checked == true ||oE6.checked == true 
+        ||oE7.checked == true ||oE8.checked == true)
+
+    { paragraph3.textContent += otherErrorsScript;
+       }
+
+    if (oE1.checked == true) {
+        document.getElementById(errorsSpan[0]).textContent = coneCut[Math.floor(Math.random()* coneCut.length)]
+        if (oE2.checked == true 
+        ||oE3.checked == true ||oE4.checked == true 
+        ||oE5.checked == true ||oE6.checked == true 
+        ||oE7.checked == true ||oE8.checked == true){document.getElementById(errorsSpan[0]).textContent +=","}
+    
+        }
+
+    if (oE2.checked == true) {
+        document.getElementById(errorsSpan[1]).textContent = eLongation[Math.floor(Math.random()* eLongation.length)]
+        if (oE3.checked == true ||oE4.checked == true 
+        ||oE5.checked == true ||oE6.checked == true 
+        ||oE7.checked == true ||oE8.checked == true)
+        {document.getElementById(errorsSpan[1]).textContent += ","}
+
+        if (oE1.checked == true && oE3.checked == false && oE4.checked == false
+        && oE5.checked == false && oE6.checked == false 
+        && oE7.checked == false && oE8.checked == false) 
+        {document.getElementById(errorsSpan[1]).textContent = "and" + " " + eLongation[Math.floor(Math.random()* eLongation.length)] ;}
+    }
+
+    if (oE3.checked == true) {
+        document.getElementById(errorsSpan[2]).textContent += foreshortening[Math.floor(Math.random()* foreshortening.length)]
+        if (oE4.checked == true 
+        ||oE5.checked == true ||oE6.checked == true 
+        ||oE7.checked == true ||oE8.checked == true)
+        {document.getElementById(errorsSpan[2]).textContent += ","}
+
+        if (oE1.checked == true || oE2.check == true && oE4.checked == false
+        && oE5.checked == false && oE6.checked == false 
+        && oE7.checked == false && oE8.checked == false) 
+        {document.getElementById(errorsSpan[2]).textContent = "and" + " " + foreshortening[Math.floor(Math.random()* foreshortening.length)] ;}
+        
+    }
+    if (oE4.checked == true) {
+        document.getElementById(errorsSpan[3]).textContent += incorrectSettings[Math.floor(Math.random()* incorrectSettings.length)]
+        if (oE5.checked == true ||oE6.checked == true 
+        ||oE7.checked == true ||oE8.checked == true)
+        {document.getElementById(errorsSpan[3]).textContent += ","}
+        if (oE1.checked == true || oE2.check == true || oE3.checked == true 
+        && oE5.checked == false && oE6.checked == false 
+        && oE7.checked == false && oE8.checked == false) 
+        {document.getElementById(errorsSpan[3]).textContent = 
+        "and" + " " + incorrectSettings[Math.floor(Math.random()* incorrectSettings.length)]}}}
+
+    if (oE5.checked == true) {
+        document.getElementById(errorsSpan[4]).textContent = 
+        upperArchRatio[Math.floor(Math.random()* upperArchRatio.length)]
+        if (oE6.checked == true 
+        ||oE7.checked == true ||oE8.checked == true)
+        {document.getElementById(errorsSpan[4]).textContent += ","}
+        if (oE1.checked == true || oE2.check == true || oE3.checked == true || oE4.checked == true 
+        && oE6.checked == false && oE7.checked == false && oE8.checked == false) 
+
+        {document.getElementById(errorsSpan[4]).textContent = 
+        "and" + " " + upperArchRatio[Math.floor(Math.random()* upperArchRatio.length)]
+    }
+    if (oE6.checked == true){
+        document.getElementById(errorsSpan[5]).textContent +=  
+        lowerArchRatio[Math.floor(Math.random()* lowerArchRatio.length)]
+        if  (oE7.checked == true ||oE8.checked == true)
+
+        {document.getElementById(errorsSpan[5]).textContent += ","}
+        if (oE1.checked == true || oE2.check == true || oE3.checked == true || oE4.checked == true 
+        && oE5.checked == true && oE7.checked == false && oE8.checked == false) 
+        {document.getElementById(errorsSpan[5]).textContent = 
+        "and" + " " + lowerArchRatio[Math.floor(Math.random()* lowerArchRatio.length)]}
+    }
+
+    if (oE7.checked == true) {
+        document.getElementById(errorsSpan[6]).textContent +=  
+        anteriorFilmPlacement[Math.floor(Math.random()* anteriorFilmPlacement.length)]
+
+        if (oE7.checked == true ||oE8.checked == true)
+        {document.getElementById(errorsSpan[6]).textContent += ","}
+        if (oE1.checked == true || oE2.check == true || oE3.checked == true || oE4.checked == true 
+        && oE5.checked == true || oE6.checked == true && oE8.checked == false) 
+        {document.getElementById(errorsSpan[6]).textContent += 
+            "and" + " " + anteriorFilmPlacement[Math.floor(Math.random()* anteriorFilmPlacement.length)]
+    }}
+
+    if (oE8.checked == true) {
+        document.getElementById(errorsSpan[7]).textContent += posteriorFilmPlacement[Math.floor(Math.random()* posteriorFilmPlacement.length)] 
+        if (oE8.checked == true){document.getElementById(errorsSpan[7]).textContent += ","}
+        if (oE1.checked == true || oE2.check == true || oE3.checked == true || oE4.checked == true 
+        && oE5.checked == true || oE6.checked == true || oE7.checked == true) 
+        {document.getElementById(errorsSpan[7]).textContent = "and" + " " + posteriorFilmPlacement[Math.floor(Math.random()* posteriorFilmPlacement.length)]} 
+    }
+
+      
+      
+    }
+
+    if (toggleTwo.value === "C" || toggleTwo === "P") {
+        if (overallRating.value === "good"){
+
+    paragraph1.textContent += judgementWordsOpti[Math.floor(Math.random()* judgementWordsOpti.length)];
+    
+    }
+
+    if (overallRating.value === "neutral"){
+        paragraph1.textContent += judgementWordsNeutral[Math.floor(Math.random()* judgementWordsNeutral.length)];
+        
+    }
+    if (overallRating.value === "bad"){
+        paragraph1.textContent += judgementWordsPessi[Math.floor(Math.random()* judgementWordsPessi.length)];
+       
+    }
+
+
+
+
+
+
+
+
+
+
+   
+
+}
+
+    if (demonValue.value === "demon1"){
+        paragraph4.textContent += demon1[Math.floor(Math.random()*demon1.length)] + " " + document.getElementById("demon1").value + " " + demon1Plus[Math.floor(Math.random()*demon1.length)] ;
+
+    }
+
+    if (demonValue.value === "demon2"){
+        paragraph4.textContent += demon1[Math.floor(Math.random()*demon1.length)] + " " + document.getElementById("demon2").value + " " + "and" + " " + document.getElementById("demon3").value + " " + demon1Plus[Math.floor(Math.random()*demon1.length)];
+
+        
+    }
+
+    if (demonValue.value === "demonKeep"){
+        paragraph4.textContent += demonKept[Math.floor(Math.random()*demonKept.length)];
+    }
+
+
+
+
+    generate.setAttribute.disabled = "True";
+
+    
+};
+
+
+
+
+
+
+
+
+archetype.addEventListener("change", onClickOption1Toggle);
+archetype2.addEventListener("change", onClickOption2Toggle);
+sessionType.addEventListener("change", onClickOption0Toggle);
+overlapNumber.addEventListener("change", onClickOption3Toggle);
+generate.addEventListener("click", onGenerateClick);
+carioTog.addEventListener("change", carioToggler);
+
+
+
+
+
+</script>
+</html>
+
+// CREDITS
+// https://link.springer.com/article/10.1007/s41894-020-00086-8  Indications for BW radiograph 
